@@ -1,8 +1,9 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 import Card from "./Card";
 
 // eslint-disable-next-line react/prop-types
-const Cards = ({characters}) => {
+const Cards = ({characters,onClose}) => {
     console.log(characters);
     return (<div>
                 {
@@ -15,7 +16,7 @@ const Cards = ({characters}) => {
                                 gender={personaje.gender}
                                 origin={personaje.origin.name}
                                 image={personaje.image}
-                                onClose={() => window.alert('Emulamos que se cierra la card')}
+                                onClose={() => onClose(personaje.id)}
                     />)
                     })
                 }
