@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 const  Card =({name,status,species,gender,origin,image,onClose})=> {
     return (
