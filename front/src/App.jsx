@@ -1,8 +1,13 @@
+// eslint-disable-next-line no-unused-vars
+import React from 'react';
 import { useState } from 'react'
 import './App.css'
+import {Routes, Route} from 'react-router-dom';
 import Cards from './components/Cards.jsx';
 import Nav from './components/Nav.jsx';
 import axios from 'axios';
+import About from './components/About';
+import Detail from './components/Detail';
 //import  characters from './data.js';
 
 function App() {
@@ -32,10 +37,8 @@ function App() {
           } else {
               window.alert('¡No hay personajes con este ID!');
           }
-        } 
-    );
-    };
-      
+        });
+      } 
   };
 
   const personajeRandom = () => {
@@ -49,12 +52,17 @@ function App() {
       )
   }
 return (
-      <div className='App' style={{ padding:'25px'}}>
-        <Nav onSearch={onSearch} personajeRandom={personajeRandom}/>
-        <div>
-          <Cards characters={characters} onClose={onClose} />
-        </div>
-      </div>
+        <div className='App' style={{ padding:'25px'}}>
+          <Nav onSearch={onSearch} personajeRandom={personajeRandom}/>
+          <Routes>
+            <Route path='/' element={<Cards characters={characters} onClose={onClose} />}/>
+            <Route path='/About' element={<About/>}/>
+            <Route path='/Detail' element={<Detail/>}/>
+          </Routes>
+          
+            
+            
+        </div> 
   );
 }
 
