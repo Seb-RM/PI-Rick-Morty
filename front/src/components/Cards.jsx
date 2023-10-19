@@ -10,6 +10,7 @@ const Cards = ({characters,onClose}) => {
                     characters.map((personaje)=>{
                         return(<Card
                                 key={personaje.id}
+                                id={personaje.id}
                                 name={personaje.name}
                                 status={personaje.status}
                                 species={personaje.species}

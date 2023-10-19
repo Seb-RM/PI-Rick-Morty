@@ -55,9 +55,9 @@ return (
         <div className='App' style={{ padding:'25px'}}>
           <Nav onSearch={onSearch} personajeRandom={personajeRandom}/>
           <Routes>
-            <Route path='/' element={<Cards characters={characters} onClose={onClose} />}/>
-            <Route path='/About' element={<About/>}/>
-            <Route path='/Detail' element={<Detail/>}/>
+            <Route path='/home' element={<Cards characters={characters} onClose={onClose} />}/>
+            <Route path='/about' element={<About/>}/>
+            <Route path='/detail/:id' element={<Detail characters={characters}/>}/>
           </Routes>
           
             

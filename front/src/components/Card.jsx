@@ -1,11 +1,13 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 
-const  Card =({name,status,species,gender,origin,image,onClose})=> {
+const  Card =({id,name,status,species,gender,origin,image,onClose})=> {
+    console.log(id);
     return (
         <div>
             <button onClick={onClose}>X</button>
-            <h2>Nombre: {name} </h2>
+            <Link to={`/detail/${id}`}><h2>Nombre: {name} </h2></Link>
             <h2>Status: {status}</h2>
             <h2>Especie: {species}</h2>
             <h2>Género: {gender}</h2>

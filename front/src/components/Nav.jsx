@@ -6,11 +6,11 @@ import SearchBar from "./SearchBar";
 const Nav = ({onSearch,personajeRandom})=>{
     return (
         <div>
-            <NavLink to='/'>Home</NavLink>
-            <NavLink to='/about'>About</NavLink>
+            <NavLink to='/home'><button>Home</button></NavLink>
+            <NavLink to='/about'><button>About</button></NavLink>
             <br />
             <SearchBar onSearch={onSearch} />
-            <button onClick={personajeRandom}>Agrega un Personaje Aleatorio</button>
+            <button onClick={personajeRandom}>Agrega un Personaje Aleatorio!</button>
         </div>
     );
 };
