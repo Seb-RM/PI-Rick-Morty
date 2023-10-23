@@ -1,18 +1,43 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, useNavigate, useLocation} from 'react-router-dom';
 import Cards from './components/Cards.jsx';
 import Nav from './components/Nav.jsx';
 import axios from 'axios';
 import About from './components/About';
 import Detail from './components/Detail';
+import Form from './components/Form';
 //import  characters from './data.js';
 
+  const EMAIL = "ejemplo@gmail.com";
+  const PASSWORD = "Password1";
+
 function App() {
+
+    const { pathname } = useLocation();
+      const navigate = useNavigate();
+
+
   
   const [characters, setCharacters] = useState([]);
+
+  const [access, setAccess] = useState(false);
+
+
+  const login = (userData) => {
+    if (userData.password === PASSWORD && userData.email === EMAIL) {
+      setAccess(true);
+      navigate("/home");
+    }
+  };
+
+  useEffect(() => {
+    !access && navigate("/");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [access]);
+
   const [characterSet, setCharacterSet] = useState(new Set());
 //(...characters,id) tambien se puede usar de esta forma
   const onSearch = (id) => {
@@ -41,29 +66,37 @@ function App() {
       } 
   };
 
+  const onClose = (id) => {
+    setCharacters(
+      characters.filter((character) => character.id !== Number(id)) //Number o parseInt por que hay que hacer la comparacion con un numero
+    );
+  };
+
   const personajeRandom = () => {
       const randomId = Math.floor(Math.random() * 826) + 1;
       onSearch(randomId);
   };
 
-  const onClose = (id) => {
-      setCharacters(
-        characters.filter(character => character.id !== Number(id))//Number o parseInt por que hay que hacer la comparacion con un numero
-      )
-  }
+
+
 return (
-        <div className='App' style={{ padding:'25px'}}>
-          <Nav onSearch={onSearch} personajeRandom={personajeRandom}/>
-          <Routes>
-            <Route path='/home' element={<Cards characters={characters} onClose={onClose} />}/>
-            <Route path='/about' element={<About/>}/>
-            <Route path='/detail/:id' element={<Detail characters={characters}/>}/>
-          </Routes>
-          
-            
-            
-        </div> 
-  );
+  <div className="App" style={{ padding: "25px" }}>
+    {/* {location.pathname !== "/" && <Nav onSearch={onSearch} personajeRandom={personajeRandom}/>} */}
+    {pathname !== "/" && (
+      <Nav onSearch={onSearch} personajeRandom={personajeRandom} />
+    )}
+
+    <Routes>
+      <Route path="/" element={<Form login={login} />} />
+      <Route
+        path="/home"
+        element={<Cards characters={characters} onClose={onClose} />}
+      />
+      <Route path="/about" element={<About />} />
+      <Route path="/detail/:id" element={<Detail characters={characters} />} />
+    </Routes>
+  </div>
+);
 }
 
 export default App;
