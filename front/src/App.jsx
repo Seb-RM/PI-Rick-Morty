@@ -1,15 +1,18 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { useState, useEffect } from 'react'
-import './App.css'
-import {Routes, Route, useNavigate, useLocation} from 'react-router-dom';
-import Cards from './components/Cards.jsx';
-import Nav from './components/Nav.jsx';
+import { useEffect, useState } from 'react'
+
 import axios from 'axios';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+
+import Form from './components/Form';
+import Nav from './components/Nav.jsx';
 import About from './components/About';
 import Detail from './components/Detail';
-import Form from './components/Form';
+import Cards from './components/Cards.jsx';
 import Favorites from './components/Favorites';
+
+import './App.css'
 //import  characters from './data.js';
 
   const EMAIL = "ejemplo@gmail.com";

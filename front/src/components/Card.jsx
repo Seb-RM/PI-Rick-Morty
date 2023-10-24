@@ -1,10 +1,12 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from 'react';
+
 import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react';
-import { addFav, removeFav } from "../redux/actions";
 import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { addFav, removeFav } from "../redux/actions";
 
 const  Card =({id,name,status,species,gender,origin,image,onClose})=> {
     const dispatch = useDispatch();
