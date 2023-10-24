@@ -31,7 +31,7 @@ const Form =({login})=>{
         <input
             type="email"
             name="email"
-            id=""
+            id="email"
             value={userData.email}
             onChange={handleChange}
             placeholder="ejemplo@gmail.com"
@@ -50,7 +50,7 @@ const Form =({login})=>{
         <input
             type="password"
             name="password"
-            id=""
+            id="password"
             value={userData.password}
             onChange={handleChange}
             placeholder="Password1"
