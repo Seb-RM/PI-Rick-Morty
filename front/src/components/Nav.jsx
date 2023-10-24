@@ -2,8 +2,8 @@
 // eslint-disable-next-line no-unused-vars
 import { Link, NavLink } from "react-router-dom";
 import SearchBar from "./SearchBar";
-
 const Nav = ({onSearch,personajeRandom})=>{
+
     return (
         <div>
             <NavLink to="/home">

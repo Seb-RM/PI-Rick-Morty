@@ -8,11 +8,14 @@ import { useLocation } from "react-router-dom";
 
 const  Card =({id,name,status,species,gender,origin,image,onClose})=> {
     const dispatch = useDispatch();
+    //const favorites = useSelector((state)=> state.myFavorites) otra forma
     const { myFavorites } = useSelector((state)=>state);
     const {pathname}= useLocation();
     const [isFav, setIsFav]= useState(false);
 
     const handleFavorite =()=>{
+    // isFAv? dispatch(removeFav(id)): dispatch(addFav());
+    //setIsFAv(!isFAv); esta es otra forma;
         if(isFav){
             setIsFav(false);
             dispatch(removeFav(id));

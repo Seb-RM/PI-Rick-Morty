@@ -4,7 +4,9 @@ import Cards from "./Cards";
 
 const Favorites = () => {
 
-    const {myFavorites} = useSelector((state)=>state);
+    //const {myFavorites} = useSelector((state)=>state);
+    const myFavorites = useSelector((state)=> state.myFavorites);
+    // otra forma seria usando map: myFavorites.map((props)=> return Card)
     return (
         <div>
             <h1>Favorites</h1>
