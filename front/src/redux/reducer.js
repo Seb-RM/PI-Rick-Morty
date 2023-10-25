@@ -1,8 +1,10 @@
-import { ADD_FAV, REMOVE_FAV } from "./actions-types"
+/* eslint-disable no-case-declarations */
+import { ADD_FAV, REMOVE_FAV, FILTER_CARDS, ORDER } from "./actions-types";
 
 
 const initialState = {
-    myFavorites: []
+    myFavorites: [],
+    allCharacters: []
 }
 
 const reducer = (state=initialState, action) =>{
@@ -10,17 +12,50 @@ const reducer = (state=initialState, action) =>{
         case ADD_FAV:
             return {
                 ...state,
-                myFavorites: [...state.myFavorites, action.payload]
+                allCharacters: [...state.allCharacters, action.payload],
+                myFavorites: [...state.allCharacters]
             }
         
         case REMOVE_FAV:
+            const filteredFavs = state.allCharacters.filter(
+                (fav) => fav.id !== Number(action.payload)
+            );
             return {
                 ...state,
-                myFavorites: state.myFavorites.filter(
-                        (character)=> {
-                            return character.id != action.payload;
-                })
+                allCharacters: filteredFavs,
+                myFavorites: filteredFavs
             }
+
+        case FILTER_CARDS:
+            if (action.payload === "All")
+                return {
+                ...state,
+                myFavorites: state.allCharacters,
+                };
+            const filteredCharacters = state.allCharacters.filter((char)=> char.gender === action.payload);
+            return{
+                ...state,
+                myFavorites: filteredCharacters
+            }
+
+        case ORDER:
+            let orderCopy = [...state.myFavorites];
+            if(action.payload === 'A'){
+                orderCopy.sort((a,b)=>{
+                    if(a.name > b.name) return 1;
+                    else return -1;
+                })
+            } else if (action.payload === 'D') {
+                orderCopy.sort((a, b) => {
+                    if (a.name < b.name) return 1;
+                    else return -1;
+                });
+            }
+            return {
+                ...state,
+                myFavorites: orderCopy
+            }
+            
 
         default: return {
             ...state,

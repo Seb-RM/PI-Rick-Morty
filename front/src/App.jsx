@@ -6,7 +6,7 @@ import axios from "axios";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 
 import Form from "./components/Form/Form";
-import Nav from "./components/Nav.jsx";
+import Nav from "./components/Nav/Nav";
 import About from "./components/About";
 import Detail from "./components/Detail";
 import Cards from "./components/Cards.jsx";
@@ -34,8 +34,10 @@ function App() {
   };
 
   useEffect(() => {
-    !access && navigate("/");
+    //!access && navigate("/");
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    !access && navigate("/home");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [access]);
 
   const [characterSet, setCharacterSet] = useState(new Set());

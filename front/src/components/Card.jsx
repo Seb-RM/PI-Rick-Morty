@@ -11,7 +11,7 @@ import { addFav, removeFav } from "../redux/actions";
 const  Card =({id,name,status,species,gender,origin,image,onClose})=> {
     const dispatch = useDispatch();
     //const favorites = useSelector((state)=> state.myFavorites) otra forma
-    const { myFavorites } = useSelector((state)=>state);
+    const myFavorites  = useSelector((state)=>state.allCharacters);
     const {pathname}= useLocation();
     const [isFav, setIsFav]= useState(false);
 
