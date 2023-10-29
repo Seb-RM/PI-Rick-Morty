@@ -1,23 +1,23 @@
 @font-face{
     font-family:  Wubba Lubba Dub Dub;
     src: url('../../fonts/WubbaLubbaDubDub.otf');
+    font-family:  Sunny Spells;
+    src: url('../../fonts/SunnyspellsRegular-MV9ze.otf');
 }
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+
+
 
 .contenedorUno {
     background-color:#1c3042;
+    padding: 10px !important;
+    box-shadow:0px 1px 8px 1px #2b769b inset,0px -1px 5px 3px #3587af;
 }
 
 .contenedorUno h1{
     font-family: Wubba Lubba Dub Dub;
     color: #b9e779;
     text-shadow: #66bdc9 3px 3px 4px;
-    
 }
 
 .btn1 {
@@ -45,6 +45,47 @@
     animation: pulse 2s infinite;
 }
 
+.contenedorDos {
+    height: auto;
+    width: auto;
+    padding: 5px !important;
+    margin: 10px !important;
+    background-color: rgba(147, 31, 5, 0.7);
+    border-radius: 7px;
+    box-shadow: 3px 3px 10px 5px #bc64e4;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    align-items: center;
+    justify-items: center;
+}
+.contenedorDos label{
+    color: #a9f3fd;
+    font-family: cursive;
+    font-size: 1.1rem;
+    font-weight: 520;
+    margin-right: 5px !important;
+}
+.contenedorDos button{
+    border: none;
+    padding: 5px 15px!important;
+    border-radius: 18px;
+    font-family: Sunny Spells;
+    font-size: 1.3rem;
+    color: 	#464b96;
+    background-color: #7cbc6c;
+    box-shadow:0px 1px 5px 1px #0ca179;
+    cursor: pointer;
+}
+.contenedorDos button:hover{
+    background-color: #319e34;
+    color: #a3a5ea;
+}
+
+.contenedorDos button:active {
+    background-color: #daac4a;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
 @keyframes pulse {
     0% {
         box-shadow: 0 0 0 0 #97ce4c;
@@ -77,4 +118,5 @@
     .navLinks button{
         font-size: 1.2rem;
     }
+
 }

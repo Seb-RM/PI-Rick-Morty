@@ -9,10 +9,11 @@ import Form from "./components/Form/Form";
 import Nav from "./components/Nav/Nav";
 import About from "./components/About";
 import Detail from "./components/Detail";
-import Cards from "./components/Cards.jsx";
+import Cards from "./components/Cards/Cards";
 import Favorites from "./components/Favorites";
 
 import "./App.css";
+
 //import  characters from './data.js';
 
 const EMAIL = "ejemplo@gmail.com";

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import Cards from "./Cards";
+import Cards from "./Cards/Cards";
 import { orderCards,filterCards } from "../redux/actions";
 
 

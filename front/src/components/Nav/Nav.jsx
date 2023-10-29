@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
-import { NavLink } from "react-router-dom";
+import { NavLink,useLocation } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 
 import styles from "./Nav.module.css"
 
 const Nav = ({onSearch,personajeRandom})=>{
 
+  const location = useLocation();
+  const isHomePage = location.pathname === "/home";
     return (
       // <div className={styles.navBar}>
       //   <div className={styles.contenedorUno}>
@@ -57,10 +59,17 @@ const Nav = ({onSearch,personajeRandom})=>{
             </NavLink>
           </div>
         </div>
-        <div className={styles.contenedorDos}>
-          <SearchBar onSearch={onSearch} onClick={personajeRandom} />
-          <button>Agrega un Personaje Aleatorio!</button>
-        </div>
+        {isHomePage && (
+          <div className={styles.contenedorDos}>
+            <SearchBar onSearch={onSearch} onClick={personajeRandom} />
+            <di>
+              <label>Sí prefieres,también puedes.</label>
+              <button onClick={personajeRandom}>
+                Agregar un Personaje Aleatorio!!
+              </button>
+            </di>
+          </div>
+        )}
       </div>
     );
 };
