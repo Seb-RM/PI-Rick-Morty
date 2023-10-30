@@ -27,12 +27,22 @@ function App() {
 
   const [access, setAccess] = useState(false);
 
+  let clase = 'App';
+
+  if(pathname=== '/home') clase = 'App home';
+
+  if(pathname==='/favorites') clase = 'App favoritos';
+
+  if (pathname === "/about") clase = "App about";
+
   const login = (userData) => {
     if (userData.password === PASSWORD && userData.email === EMAIL) {
       setAccess(true);
       navigate("/home");
     }
   };
+
+
 
   useEffect(() => {
     //!access && navigate("/");
@@ -84,7 +94,7 @@ function App() {
   };
 
   return (
-    <div className="App" style={{ padding: "25px" }}>
+    <div className={clase} style={{ padding: "25px" }}>
       {/* {location.pathname !== "/" && <Nav onSearch={onSearch} personajeRandom={personajeRandom}/>} */}
       {pathname !== "/" && (
         <Nav onSearch={onSearch} personajeRandom={personajeRandom} />

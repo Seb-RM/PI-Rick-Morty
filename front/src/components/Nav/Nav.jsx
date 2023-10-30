@@ -4,6 +4,7 @@ import { NavLink,useLocation } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 
 import styles from "./Nav.module.css"
+import logo from '../../img/logo.png'
 
 const Nav = ({onSearch,personajeRandom})=>{
 
@@ -34,7 +35,10 @@ const Nav = ({onSearch,personajeRandom})=>{
       // </div>
       <div className={styles.navBar}>
         <div className={styles.contenedorUno}>
-          <h1>Rick And Morty - App</h1>
+          <div className={styles.contenedorLogo}>
+            <h1>Rick And Morty - App</h1>
+            <img src={logo} className={styles.logo} />
+          </div>
           <div className={styles.navLinks}>
             <NavLink
               to="home"
