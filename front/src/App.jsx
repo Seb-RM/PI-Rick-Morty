@@ -45,9 +45,9 @@ function App() {
 
 
   useEffect(() => {
-    //!access && navigate("/");
+    !access && navigate("/");
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    !access && navigate("/home");
+    // !access && navigate("/home");
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [access]);
 
@@ -94,7 +94,7 @@ function App() {
   };
 
   return (
-    <div className={clase} style={{ padding: "25px" }}>
+    <div className={clase} >
       {/* {location.pathname !== "/" && <Nav onSearch={onSearch} personajeRandom={personajeRandom}/>} */}
       {pathname !== "/" && (
         <Nav onSearch={onSearch} personajeRandom={personajeRandom} />
