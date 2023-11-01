@@ -8,12 +8,13 @@ const Detail= ()=>{
     console.log(id);
 
     useEffect(() => {
-        axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-seb-rm`).then(
+        //axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-seb-rm`).then(
+        axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
             ({ data }) => {
                 if (data.name) {
-                    setCharacter(data);
+                setCharacter(data);
                 } else {
-                    window.alert('No hay personajes con ese ID');
+                window.alert("No hay personajes con ese ID");
                 }
             }
         );
