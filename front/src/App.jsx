@@ -16,7 +16,9 @@ import "./App.css";
 
 //import  characters from './data.js';
 
+// eslint-disable-next-line no-unused-vars
 const EMAIL = "ejemplo@gmail.com";
+// eslint-disable-next-line no-unused-vars
 const PASSWORD = "Password1";
 
 function App() {
@@ -55,6 +57,12 @@ const  login=(userData)=> {
   }, [access]);
 
   const [characterSet, setCharacterSet] = useState(new Set());
+
+    const personajeRandom = () => {
+      const randomId = Math.floor(Math.random() * 826) + 1;
+      onSearch(randomId);
+    };
+    
   //(...characters,id) tambien se puede usar de esta forma
   const onSearch = (id) => {
     // fetch(`https://rym2.up.railway.app/api/character/${id}?key=pi-seb-rm`)
@@ -92,10 +100,7 @@ const  login=(userData)=> {
     );
   };
 
-  const personajeRandom = () => {
-    const randomId = Math.floor(Math.random() * 826) + 1;
-    onSearch(randomId);
-  };
+
 
   return (
     <div className={clase} >
