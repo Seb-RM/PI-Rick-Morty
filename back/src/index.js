@@ -1,15 +1,24 @@
-const data = require('./utils/data');
-const  http = require("http");
-const {getCharacterById} = require('./controllers/getCharactersById')
+const express = require("express");
+const server = express();
 
-http
-    .createServer((request, response) => {
-        response.setHeader("Access-Control-Allow-Origin", "*");
+const {router} =require('./routes/index');
+const PUERTO = 3001;
 
-        if (request.url.includes("/rickandmorty/character")) {
-        const id = request.url.split("/").at(-1);
+server.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+    next();
+});
 
-        getCharacterById(response, +id);
-        }
-    })
-    .listen(3001, "localhost");
+server.use(express.json());
+
+server.use('/rickandmorty', router);
+
+server.listen(PUERTO, () => {
+    console.log("Servidor funcionando en: " + PUERTO);
+});
