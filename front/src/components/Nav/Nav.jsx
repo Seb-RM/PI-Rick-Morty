@@ -66,12 +66,12 @@ const Nav = ({onSearch,personajeRandom})=>{
         {isHomePage && (
           <div className={styles.contenedorDos}>
             <SearchBar onSearch={onSearch} onClick={personajeRandom} />
-            <di>
+            <div>
               <label>Sí prefieres,también puedes.</label>
               <button onClick={personajeRandom}>
                 Agregar un Personaje Aleatorio!!
               </button>
-            </di>
+            </div>
           </div>
         )}
       </div>

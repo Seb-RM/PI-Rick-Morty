@@ -14,7 +14,7 @@ export default function SearchBar({onSearch}) {
     return (
       <div className={styles.search}>
         <label>Hay 826 personajes!!</label>
-        <input type="search" value={id} onChange={handleChange} placeholder="Ingresa un número para descubrirlos." />
+        <input type="search" value={id} onChange={handleChange} placeholder="Ingresa un número para descubrirlos." id="numero_de_personaje"/>
         <button onClick={() => onSearch(id)}>Agregar</button>
       </div>
     );

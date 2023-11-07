@@ -54,7 +54,7 @@ const Card = ({
       <div className={styles.card}>
         {pathname !== "/favorites" ? (
           <button onClick={() => onClose(id)} className={styles.btnClose}>
-            <pan></pan>X
+            <span>X</span>
           </button>
         ) : (
           ""
