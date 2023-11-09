@@ -17,9 +17,9 @@ import "./App.css";
 //import  characters from './data.js';
 
 // eslint-disable-next-line no-unused-vars
-const EMAIL = "ejemplo@gmail.com";
+//const EMAIL = "ejemplo@gmail.com";
 // eslint-disable-next-line no-unused-vars
-const PASSWORD = "Password1";
+//const PASSWORD = "Password1";
 
 function App() {
   const { pathname } = useLocation();
@@ -77,7 +77,7 @@ const  login= async (userData)=> {
       onSearch(randomId);
     };
     
-  //(...characters,id) tambien se puede usar de esta forma
+  //(...characters,id) también se puede usar de esta forma
   const onSearch = async (id) => {
     // fetch(`https://rym2.up.railway.app/api/character/${id}?key=pi-seb-rm`)
     // .then((response)=> response.json())
@@ -133,7 +133,7 @@ const  login= async (userData)=> {
 
   const onClose = (id) => {
     setCharacters(
-      characters.filter((character) => character.id !== Number(id)) //Number o parseInt por que hay que hacer la comparacion con un numero
+      characters.filter((character) => character.id !== id) //Number o parseInt por que hay que hacer la comparacion con un numero
     );
   };
 
