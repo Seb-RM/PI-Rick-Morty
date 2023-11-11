@@ -2,6 +2,8 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+import styles from '../Detail/Detail.module.css'
+
 const Detail= ()=>{
     const {id} = useParams();
     const [character, setCharacter] = useState({});

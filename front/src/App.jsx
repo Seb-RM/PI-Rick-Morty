@@ -8,9 +8,9 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Form from "./components/Form/Form";
 import Nav from "./components/Nav/Nav";
 import About from "./components/About";
-import Detail from "./components/Detail";
+import Detail from "./components/Detail/Detail";
 import Cards from "./components/Cards/Cards";
-import Favorites from "./components/Favorites";
+import Favorites from "./components/Favorites/Favorites";
 
 import "./App.css";
 
@@ -64,9 +64,9 @@ const  login= async (userData)=> {
 
 
   useEffect(() => {
-    !access && navigate("/");
+    //!access && navigate("/");
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // !access && navigate("/home");
+     !access && navigate("/home");
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [access]);
 

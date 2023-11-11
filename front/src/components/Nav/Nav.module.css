@@ -60,6 +60,7 @@
 }
 .contenedorDos label{
     color: #a9f3fd;
+    text-decoration: underline;
     font-family: cursive;
     font-size: 1.1rem;
     font-weight: 520;
