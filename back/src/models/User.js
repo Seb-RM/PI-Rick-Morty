@@ -1,3 +1,4 @@
+const sequelize = require('sequelize');
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
@@ -5,12 +6,12 @@ module.exports = (sequelize) => {
       "User",
       {
          id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER,/// si no se agrega sequelize agrega el id automáticamente
             allowNull: false,
             primaryKey: true,
          },
          email: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(50),
             allowNull: false,
             isEmail: true,
          },
