@@ -2,7 +2,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import styles from '../Detail/Detail.module.css'
+import styles from './Detail.module.css'
 
 const Detail= ()=>{
     const {id} = useParams();
@@ -25,13 +25,38 @@ const Detail= ()=>{
     //se agrega un condicional"shorcircuit" para contorlar la respuesta del servidor
     //que es asincrona por eso se usa el &&, para el renderizado condicional, el signo ? se usa para enrutar al elemento correcto
     return (
-        <div>
+        <div className={styles.detail}>
+            <div className={`${styles.contenedor} ${styles.backgroundImg}`}>
             <img src={character.image} alt={character.name} />
-            <h1>Name: {character.name && character.name}</h1>
-            <h1>Status: {character.status}</h1>
-            <h1>Origin: {character.origin?.name && character.origin?.name}</h1>
+            <div className={styles.detalle}>
+                <h1>
+                <span className={styles.titulo}>Name: </span>
+                <span className={styles.info}>
+                    {character.name && character.name}
+                </span>
+                </h1>
+                <h1>
+                <span className={styles.titulo}>Status: </span>
+                <span className={styles.info}>{character.status}</span>
+                </h1>
+                <h1>
+                <span className={styles.titulo}>Species: </span>
+                <span className={styles.info}>{character.species}</span>
+                </h1>
+                <h1>
+                <span className={styles.titulo}>Gender: </span>
+                <span className={styles.info}>{character.gender}</span>
+                </h1>
+                <h1>
+                <span className={styles.titulo}>Origin: </span>
+                <span className={styles.info}>
+                    {character.origin?.name && character.origin?.name}
+                </span>
+                </h1>
+            </div>
+            </div>
         </div>
-    )
+    );
 };
 
 export default Detail;

@@ -133,6 +133,12 @@
     width: 100%;
     margin-top: 2px !important;
     margin-bottom: 2px !important;
+
+}
+input::placeholder {
+    color: rgb(32, 219, 236);
+    padding-bottom: 5px !important;
+    opacity: 1; 
 }
 
 .section .signin .content .form p{
@@ -142,9 +148,10 @@
     position: relative;
     width: 100%;
     background: #333;
+    text-align: center;
     border: none;
     outline: none;
-    padding: 25px 10px 7.5px !important;
+    padding: 20px 10px 7.5px !important;
     border-radius: 4px;
     color: #fff;
     font-weight: 500;
@@ -154,7 +161,8 @@
 .section .signin .content .form .inputbox i {
     position: absolute;
     left: 0;
-    padding: 15px 10px !important;
+    top: 35px;
+    padding: 5px 10px !important;
     font-style: normal;
     color: #aaa;
     transition: 0.5s;
@@ -165,7 +173,7 @@
 .signin .content .form .inputbox input:valid ~ i{
     transform: translateY(-7.5px);
     font-size: 0.8em;
-    color: #fff;
+    color: rgb(60, 143, 192);
 }
 
 .signin .content .form .inputbox input[type="submit"] {
