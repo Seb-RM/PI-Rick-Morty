@@ -65,9 +65,9 @@ const  login= async (userData)=> {
 
 
   useEffect(() => {
-    !access && navigate("/");
+    // !access && navigate("/");
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    //!access && navigate("/home");
+    !access && navigate("/home");
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [access]);
 
