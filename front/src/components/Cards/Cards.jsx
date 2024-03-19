@@ -5,7 +5,7 @@ import Card from "../Card/Card.jsx"
 import styles from "../Cards/Cards.module.css";
 
 // eslint-disable-next-line react/prop-types
-const Cards = ({ characters, onClose }) => {
+const Cards = ({ characters, onClose, userId }) => {
   console.log(characters);
   return (
     <div className={styles.backgroundImg}>
@@ -21,6 +21,7 @@ const Cards = ({ characters, onClose }) => {
             origin={personaje.origin.name}
             image={personaje.image}
             onClose={() => onClose(personaje.id)}
+            userId={userId}
           />
         );
       })}

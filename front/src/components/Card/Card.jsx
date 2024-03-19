@@ -19,6 +19,7 @@ const Card = ({
   origin,
   image,
   onClose,
+  userId
 }) => {
   const dispatch = useDispatch();
   //const favorites = useSelector((state)=> state.myFavorites) otra forma
@@ -35,7 +36,7 @@ const Card = ({
     } else {
       setIsFav(true);
       dispatch(
-        addFav({ id, name, status, species, gender, origin, image, onClose })
+        addFav({ id, name, status, species, gender, origin, image, onClose }, userId)
       );
     }
   };

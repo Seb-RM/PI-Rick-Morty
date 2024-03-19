@@ -1,4 +1,5 @@
 const { Favorite } = require('../DB_connection');
+const { User } = require("../DB_connection");
 
 module.exports = async(req, res)=>{
 
@@ -9,9 +10,25 @@ module.exports = async(req, res)=>{
             return res.status(401).send("Faltan datos.");
         }
 
-        await Favorite.findOrCreate({
-            where: { name, origin, status, image, species, gender },
+        const userId = req.params.userId
+
+        const user = await User.findByPk(userId);
+        if (!user) {
+            return res.status(404).send("Usuario no encontrado.");
+        }
+        console.log(user)
+        const favorite = await Favorite.findOrCreate({
+            where: {
+                name,
+                origin,
+                status,
+                image,
+                species,
+                gender,
+            },
         });
+        
+        await user.addFavorite(favorite);
 
         const allFavorites = await Favorite.findAll();
         return res.json(allFavorites);

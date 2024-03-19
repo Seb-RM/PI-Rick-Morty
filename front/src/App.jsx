@@ -29,6 +29,8 @@ function App() {
 
   const [access, setAccess] = useState(false);
 
+  const [userId, setUserId] = useState(0);
+
   let clase = 'App';
 
   if(pathname=== '/home') clase = 'App home';
@@ -51,9 +53,11 @@ const  login= async (userData)=> {
     const URL = "http://localhost:3001/rickandmorty/login/";
     const {data} = await axios(URL + `?email=${email}&password=${password}`)
 
-    const { access } = data;
+    const { access, userId } = data;
 
     setAccess(access);
+    
+    setUserId(userId)
 
     access && navigate("/home");
 
@@ -61,13 +65,10 @@ const  login= async (userData)=> {
     console.log(error.message);
   }
 }
-
-
-
   useEffect(() => {
-    // !access && navigate("/");
+    !access && navigate("/");
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    !access && navigate("/home");
+    // !access && navigate("/home");
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [access]);
 
@@ -134,11 +135,9 @@ const  login= async (userData)=> {
 
   const onClose = (id) => {
     setCharacters(
-      characters.filter((character) => character.id !== id) //Number o parseInt por que hay que hacer la comparacion con un numero
+      characters.filter((character) => character.id !== id) //Number o parseInt por que hay que hacer la comparación con un numero
     );
   };
-
-
 
   return (
     <div className={clase} >
@@ -151,7 +150,7 @@ const  login= async (userData)=> {
         <Route path="/" element={<Form login={login} />} />
         <Route
           path="/home"
-          element={<Cards characters={characters} onClose={onClose} />}
+          element={<Cards characters={characters} onClose={onClose} userId={userId} />}
         />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/about" element={<About />} />
